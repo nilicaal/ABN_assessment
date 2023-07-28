@@ -18,3 +18,7 @@ Tested to work on both Intel x86/x46 based CPU as well as the Apple M1 ARM-based
 ## Additional remarks:
 Placeholder. This section will describe any additional remarks.
 
+## Log:
+
+28-07-2023
+Start with the assignment.
