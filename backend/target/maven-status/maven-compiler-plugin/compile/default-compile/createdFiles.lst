@@ -1,0 +1,6 @@
+nl/zwemmernet/assessment/repository/ClientRepository.class
+nl/zwemmernet/assessment/controller/ClientController.class
+nl/zwemmernet/assessment/securingweb/MvcConfig.class
+nl/zwemmernet/assessment/AbnAmroAssessmentApplication.class
+nl/zwemmernet/assessment/securingweb/WebSecurityConfig.class
+nl/zwemmernet/assessment/model/Client.class
