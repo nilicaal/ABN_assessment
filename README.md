@@ -43,6 +43,5 @@ Start with the assignment. Reading up on connecting a Java backend to a PostgreS
 - Found it was much easier to just connect to the PostgreSQL database from the terminal, as the pgAdmin tool built-in shell was constantly having formatting issues. No more issues through Terminal.
 - Have been looking into using Springboot instead of plain Java for the backend. I will base my application on the following repository: https://github.com/in28minutes/spring-boot-vuejs-fullstack-examples/tree/master/spring-boot-crud-full-stack
 - I have chosen the communication protocol of RESTapi, since the ABN Amro also uses this in other software systems and since I have only limited knowledge on this subject, it is a good learning opportunity.
-- Looked into using mvnw (mvn wrapper) since the guide at https://spring.io/guides/gs/rest-service/ requires its use.
-- Then I continued using the following source: https://www.bezkoder.com/spring-boot-postgresql-example/
-- 
+- https://spring.io/guides/gs/securing-web/ <- attempted, but seems to not have worked for POST. Interesting to add later if there is time, otherwise leave it for now.
+- https://www.bezkoder.com/vue-3-crud/ <- continuing with this guide.
