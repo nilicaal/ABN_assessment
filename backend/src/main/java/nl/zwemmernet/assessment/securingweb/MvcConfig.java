@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package nl.zwemmernet.assessment.securingweb;
 
 /**
@@ -18,9 +14,8 @@ package nl.zwemmernet.assessment.securingweb;
     // public void addViewControllers(ViewControllerRegistry registry) {
     //     registry.addViewController("/home").setViewName("home");
     //     registry.addViewController("/").setViewName("home");
-    //     registry.addViewController("/login").setViewName("login");
-    //     registry.addViewController("/register").setViewName("login");
-    //     registry.addViewController("/api/clients").setViewName("clients");
+    //     registry.addViewController("/clients").setViewName("clients");
+    //     registry.addViewController("/api/clients").setViewName("api/clients");
     // }
 // }
 

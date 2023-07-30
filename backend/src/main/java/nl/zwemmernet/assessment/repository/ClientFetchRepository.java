@@ -2,9 +2,9 @@ package nl.zwemmernet.assessment.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import nl.zwemmernet.assessment.model.Client;
+import nl.zwemmernet.assessment.model.ClientFetch;
 
-public interface ClientRepository extends JpaRepository<Client, Long> {
+public interface ClientFetchRepository extends JpaRepository<ClientFetch, Long> {
   /*
    * Custom functions may be declared here, which can then return the required type.
    * For example:

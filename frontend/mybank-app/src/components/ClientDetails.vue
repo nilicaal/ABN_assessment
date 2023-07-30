@@ -33,8 +33,8 @@
       <input type="text" class="form-control" id="bank_account_balance" v-model="currentClient.bank_account_balance" />
     </div>
     <div class="form-group">
-      <label for="bank_id">Bank ID</label>
-      <input type="text" class="form-control" id="bank_id" v-model="currentClient.bank_id" />
+      <label for="bank_id">Bank Name</label>
+      <input type="text" class="form-control" id="bank_name" v-model="currentClient.bank_name" />
     </div>
   </form>
   

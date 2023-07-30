@@ -1,3 +1,7 @@
+/**
+ * Entrypoint of the application.
+ * Creates the Springapplication server.
+ */
 package nl.zwemmernet.assessment;
 
 import org.springframework.boot.SpringApplication;

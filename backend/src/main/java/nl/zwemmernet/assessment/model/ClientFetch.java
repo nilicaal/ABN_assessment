@@ -1,5 +1,7 @@
 package nl.zwemmernet.assessment.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -10,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "clients")
-public class Client {
+public class ClientFetch {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,8 +40,10 @@ public class Client {
     @Column(name = "bank_account_balance")
     private double bank_account_balance;
 
-    @Column(name = "bank_id")
-    private Long bank_id;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "bank_id", referencedColumnName = "id")
+    @JsonBackReference
+    private Bank bank;
 
     @Override
     public String toString() {

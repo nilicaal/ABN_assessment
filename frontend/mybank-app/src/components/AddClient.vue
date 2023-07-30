@@ -80,7 +80,6 @@
           bank_account_number: this.client.bank_account_number,
           bank_account_balance: this.client.bank_account_balance,
           bank_id: this.client.bank_id,
-          published: this.client.published,
         };
 
         ClientDataService.create(data)
@@ -95,7 +94,7 @@
             console.log(e);
           });
       },
-      
+
       newClient() {
         this.error = false;
         this.submitted = false;
@@ -104,7 +103,7 @@
     }
   };
   </script>
-  
+
   <style>
   .submit-form {
     max-width: 300px;

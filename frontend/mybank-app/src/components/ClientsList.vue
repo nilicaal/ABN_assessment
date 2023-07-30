@@ -55,9 +55,8 @@
             <label><strong>Bank Account Balance:</strong></label> {{ currentClient.bank_account_balance }}
           </div>
           <div>
-            <label><strong>Bank ID:</strong></label> {{ currentClient.bank_id }}
+            <label><strong>Bank Name:</strong></label> {{ currentClient.bank_name }}
           </div>
-  
           <router-link :to="'/clients/' + currentClient.id" class="badge badge-warning">Edit</router-link>
         </div>
         <div v-else>
