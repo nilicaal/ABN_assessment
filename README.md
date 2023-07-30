@@ -2,22 +2,69 @@
 Repository containing my solution to the programming assessment provided to me by ABN Amro.
 
 ## Requirements:
-Placeholder. This section will describe how to create a working environment for the assignment.
+### Database: PostgreSQL 
+PostgreSQL is assumed. To some degree, the assignment is database agnostic.
+Assuming you create the database yourself, use the following commands to replicate the used tables:
 
-## Usage:
-Placeholder. This section will describe the steps to get the small application running.
+CREATE TABLE bank (
+    id SERIAL PRIMARY KEY,
+    bank_code VARCHAR(4) UNIQUE NOT NULL,
+    bank_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE clients (
+    id SERIAL PRIMARY KEY,
+    bsn VARCHAR(9) UNIQUE NOT NULL,
+    mobile_phone_number VARCHAR(15),
+    firstname VARCHAR(20) NOT NULL,
+    surname VARCHAR(20) NOT NULL,
+    address VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    salt VARCHAR(100) NOT NULL,
+    bank_account_number VARCHAR(20) UNIQUE NOT NULL,
+    bank_account_balance NUMERIC(12, 2) DEFAULT 0,
+    bank_id INT REFERENCES bank(id)-- Foreign key column to reference bank table
+);
+
+These commands can be directly called to ensure the database is equal to mine.
+
+Your username and password should not matter, but should be included in the /backend/src/main/resources/application.properties file.
+My own file is shared as an example. 
+#### If you copy any of this work and plan on using it more seriously, NEVER share this file on your git repo! Always use ENV variables.
+
+On with the rest :)
+
+### Backend: Spring boot Java
+I've chosen to go ahead with Spring Boot, as it allows very quick deployment of new API calls once you get the hang of it. The maven dependencies can be found in /backend/pom.xml.
+
+Backend code can be run from the /backend folder using command:
+$ ./mvnw spring-boot:run
+
+I have incorporated JUnit5 tests, mainly integration tests. They can be found in /backend/src/test/ClientBankPostgreSQLTest.java. Ideally, I would split these tests up more. As I am getting more experienced with these tests, I surely will in the future.
+
+Tests can be run from the /backend folder using command:
+$ mvn test
+
+### Frontend: Vue.js
+A Javascript framework which allows easy creation of UI design with a router to serve components dynamically based on which buttons are pressed by the user. Truly awesome stuff. I enjoyed it very much.
+
+Can be run from the /frontend/mybank-app/ folder using command:
+
+$ npm run serve
 
 ## Design decisions:
 Frontend: Vue.js. Initially because I wanted to learn about this framework already, secondly because it is one of the main languages used for the frontend.  
 
-Backend: Java, since this is the most common language used at ABN Amro, this is a fitting choice.  
+Backend: Spring Boot Java, since this is the most common language used at ABN Amro, this is a fitting choice.  
 
 Database: PostgreSQL, which uses JDBC to connect to Java: https://www.postgresqltutorial.com/postgresql-jdbc/  
 
 ## Hardware used:
-Tested to work on both Intel x86/x46 based CPU as well as the Apple M1 ARM-based SoC.
-- Mac Mini 2018 (Intel Core i5-8500B, 64GB RAM, MacOS Ventura 13.4.1)
+Tested to work on the Apple M1 ARM-based SoC. Should work on any x86 system as well. Will still test this after the assessment!
+##### Tested
 - Macbook Pro 14" 2021 (M1 Pro, 16GB RAM, MacOS Ventura 13.4.1)
+##### Will test
+- Mac Mini 2018 (Intel Core i5-8500B, 64GB RAM, MacOS Ventura 13.4.1)
 
 ## Additional remarks:
 Placeholder. This section will describe any additional remarks.
@@ -51,8 +98,10 @@ Start with the assignment. Reading up on connecting a Java backend to a PostgreS
 
 30-07-2023
 - Today is dedicated to writing tests, cleaning code and seeing if fixes can still be applied.
-- Fixes such as: Security, Login/Logout, Improved Database design, Layout fixes.
-
+- Fixes such as: Security, Login/Logout, Improved Database design, Layout fixes, database merge for clients and bank.
+- Fixes that could be applied: Layout fixes, some error handling (client side primarily).
+- Improved UI.
+- Created integration testing, some unit testing as well.
 
 Sources used frequently:
 https://www.bezkoder.com/spring-boot-vue-js-crud-example/

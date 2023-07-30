@@ -14,8 +14,7 @@
 	<name>ABN Amro Assessment</name>
 	<description>Assessment assignment for ABN Amro</description>
 	<properties>
-                <!--<start-class>nl.zwemmernet.assessment.AbnAmroAssessmentApplication</start-class>-->
-		<java.version>20</java.version>
+     <java.version>20</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
