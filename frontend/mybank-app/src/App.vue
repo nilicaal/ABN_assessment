@@ -7,7 +7,13 @@
           <router-link to="/clients" class="nav-link">Clients</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/add" class="nav-link">New Client</router-link>
+          <router-link to="/banks" class="nav-link">Banks</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/clients/add" class="nav-link">New Client</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/banks/add" class="nav-link">New Bank</router-link>
         </li>
       </div>
     </nav>

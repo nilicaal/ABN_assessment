@@ -8,6 +8,6 @@ class AbnAmroAssessmentApplicationTests {
 
 	@Test
 	void contextLoads() {
-	}
-
+		System.out.println("Testing started!");
+	}	
 }

@@ -44,9 +44,4 @@ public class ClientFetch {
     @JoinColumn(name = "bank_id", referencedColumnName = "id")
     @JsonBackReference
     private Bank bank;
-
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", bsn=" + bsn + ", firstname=" + firstname + "]";
-    }
 }

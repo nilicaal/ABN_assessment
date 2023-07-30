@@ -1,17 +1,12 @@
 package nl.zwemmernet.assessment.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import nl.zwemmernet.assessment.model.Client;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
-  /*
-   * Custom functions may be declared here, which can then return the required type.
-   * For example:
-   * List<Client> findByBsn(String bsn);
-   * This would mean that calling findByBsn(String bsn) in the ClientController class, 
-   * would return a List<Client> Object.
-   * 
-   * Future work could use this knowledge.
-   */
+    @Query(value = "SELECT COUNT(*) FROM clients WHERE bank_id = :bank_id", nativeQuery = true)
+    int countClientsByBankId(@Param("bank_id") Long bank_id);
 }

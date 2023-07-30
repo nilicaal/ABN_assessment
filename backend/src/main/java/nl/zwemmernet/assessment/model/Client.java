@@ -40,9 +40,4 @@ public class Client {
 
     @Column(name = "bank_id")
     private Long bank_id;
-
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", bsn=" + bsn + ", firstname=" + firstname + "]";
-    }
 }

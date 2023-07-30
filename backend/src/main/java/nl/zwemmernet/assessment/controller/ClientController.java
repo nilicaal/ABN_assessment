@@ -20,7 +20,6 @@
 
 package nl.zwemmernet.assessment.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,22 +80,6 @@ public class ClientController {
         }
     }
 
-	//     @GetMapping("/clients")
-    // public ResponseEntity<List<ClientFetch>> getAllClients() {
-    //     try {
-	// 		List<ClientFetch> clientFetches = new ArrayList<>();
-	// 		clientFetchRepository.findAll().forEach(clientFetches::add);
-
-    //         if (clientFetches.isEmpty()) {
-    //             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    //         }
-    //         return new ResponseEntity<>(clientFetches, HttpStatus.OK);
-    //     } catch (Exception e) {
-	// 		System.out.println(e.getMessage());
-    //         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-    //     }
-    // }
-
     /**
      * Get a single client from the PostgreSQL database based on their ID.
      * Using the findById(long id) method from the JpaRepository through the clientRepository interface.
@@ -106,17 +89,22 @@ public class ClientController {
      */
     @GetMapping("/clients/{id}")
     public ResponseEntity<ClientDTO> getClientById(@PathVariable("id") long id) {
-        Optional<ClientFetch> clientData = clientFetchRepository.findById(id);
+        // For finding bank name.
+        Optional<ClientFetch> clientFetchData = clientFetchRepository.findById(id);
 
-        if (clientData.isPresent()) {
-            ClientDTO clientDTO = convertToDto(clientData.get());
+        // For finding the bankID.
+        Optional<Client> clientData = clientRepository.findById(id);
+
+        if (clientFetchData.isPresent()) {
+            ClientDTO clientDTO = convertToDto(clientFetchData.get());
+            clientDTO.setBank_id(clientData.get().getBank_id());
             return new ResponseEntity<>(clientDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-  /**
+    /**
      * Create a new client and store it in the PostgreSQL database.
      * Using the save(S entity) method from the JpaRepository through the clientRepository interface.
      * 
@@ -126,11 +114,7 @@ public class ClientController {
     @PostMapping("/clients")
     public ResponseEntity<Client> createClient(@RequestBody Client client) {
         try {
-            // Client client = convertToEntity(clientDTO);
-			// client.setBank_id(clientDTO.getBank_id());
             Client savedClient = clientRepository.save(client);
-            // ClientDTO savedClientDTO = convertToDto(savedClient);
-			// savedClientDTO.setBank_id(clientDTO.getBank_id());
             return new ResponseEntity<>(savedClient, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -150,10 +134,7 @@ public class ClientController {
     public ResponseEntity<Client> updateClient(@PathVariable("id") long id, @RequestBody Client client) {
         Optional<Client> clientData = clientRepository.findById(id);
         if (clientData.isPresent()) {
-            // Client updatedClient = convertToEntity(client);
-            // updatedClient.setId(id);
             Client savedClient = clientRepository.save(client);
-            // ClientDTO savedClientDTO = convertToDto(savedClient);
             return new ResponseEntity<>(savedClient, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -216,23 +197,5 @@ public class ClientController {
             clientDTO.setBank_name(client.getBank().getBank_name());
         }
         return clientDTO;
-    }
-
-    /**
-     * Convert ClientDTO to Client entity.
-     *
-     * @param clientDTO The ClientDTO to convert.
-     * @return The converted ClientFetch entity.
-     */
-    private ClientFetch convertToEntity(ClientDTO clientDTO) {
-        ClientFetch client = new ClientFetch();
-        client.setBsn(clientDTO.getBsn());
-        client.setMobile_phone_number(clientDTO.getMobile_phone_number());
-        client.setFirstname(clientDTO.getFirstname());
-        client.setSurname(clientDTO.getSurname());
-        client.setAddress(clientDTO.getAddress());
-        client.setBank_account_number(clientDTO.getBank_account_number());
-        client.setBank_account_balance(clientDTO.getBank_account_balance());
-        return client;
     }
 }

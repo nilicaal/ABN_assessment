@@ -8,14 +8,29 @@ const routes =  [
     component: () => import("./components/ClientsList")
   },
   {
+    path: "/banks",
+    name: "banks",
+    component: () => import("./components/BanksList")
+  },
+  {
     path: "/clients/:id",
     name: "clients-details",
     component: () => import("./components/ClientDetails")
   },
   {
-    path: "/add",
-    name: "add",
+    path: "/clients/add",
+    name: "clients-add",
     component: () => import("./components/AddClient")
+  },
+  {
+    path: "/banks/add",
+    name: "banks-add",
+    component: () => import("./components/AddBank")
+  },
+  {
+    path: "/banks/:id",
+    name: "banks-details",
+    component: () => import("./components/BankDetails")
   }
 ];
 

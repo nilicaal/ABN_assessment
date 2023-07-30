@@ -14,9 +14,4 @@ public class ClientDTO {
     private double bank_account_balance;
     private long bank_id;
     private String bank_name;
-
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", bsn=" + bsn + ", firstname=" + firstname + "bank_id" + bank_id + "]";
-    }
 }
