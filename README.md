@@ -61,13 +61,17 @@ Database: PostgreSQL, which uses JDBC to connect to Java: https://www.postgresql
 
 ## Hardware used:
 Tested to work on the Apple M1 ARM-based SoC. Should work on any x86 system as well. Will still test this after the assessment!
-##### Tested
+##### Tested:
 - Macbook Pro 14" 2021 (M1 Pro, 16GB RAM, MacOS Ventura 13.4.1)
-##### Will test
+##### Will test:
 - Mac Mini 2018 (Intel Core i5-8500B, 64GB RAM, MacOS Ventura 13.4.1)
 
 ## Additional remarks:
-Placeholder. This section will describe any additional remarks.
+I enjoyed this assignment and given my newfound experience, I would do a lot different. I enjoyed learning about PostgreSQL custom types; which are similar to compound attributes. How to get them to work in Spring Boot was a little too far beyond my knowledge at that time, but given more time with my newly acquired tools, this should be no problem.
+
+I also worked with Spring Boot for the first time, which was rather easy to get working but initially difficult to get familiar with. I am pleased with how much I have gotten done in the short amount of time experimenting with Spring Boot, especially since Java itself has been a while for me.
+
+Finally, working with Vue.js has given me insight into what is possible with proper website/webclient building. Having some experience with Flutter, I find Vue.js to be slightly more appealing since it allows for even cleaner code and faster component creation. I feel I've really learned a great deal but still have a long way to go also.
 
 ## Log:
 
